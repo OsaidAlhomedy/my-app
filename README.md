@@ -92,9 +92,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 **Start time:** 2:27 pm
 
-**Finish time:** _____
+**Finish time:** 2:35 pm
 
-**Actual time needed to complete:** _____
+**Actual time needed to complete:** 8 minutes
 
 
 

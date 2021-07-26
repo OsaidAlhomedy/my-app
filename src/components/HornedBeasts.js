@@ -1,4 +1,7 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 class HornedBeasts extends React.Component {
   constructor(props) {
@@ -17,16 +20,17 @@ class HornedBeasts extends React.Component {
 
   render() {
     return (
-      <div onClick={this.likesIncrement}>
-        <h2>{this.props.title}</h2>
-        <img
-          src={this.props.image_url}
-          alt={this.props.title}
-          title={this.props.title}
-        />
-        <p>💘: {this.state.counter} </p>
-        <p>{this.props.description}</p>
-      </div>
+      <Card
+        style={{ width: "18rem", height: "30rem" }}
+        onClick={this.likesIncrement}
+      >
+        <Card.Img variant="top" src={this.props.image_url} />
+        <Card.Body>
+          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Text>{this.props.description}</Card.Text>
+          <Button variant="primary"> 💘 : {this.state.counter}</Button>
+        </Card.Body>
+      </Card>
     );
   }
 }
