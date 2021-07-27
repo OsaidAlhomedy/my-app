@@ -16,6 +16,7 @@ class HornedBeasts extends React.Component {
     this.setState({
       counter: this.state.counter + 1,
     });
+    this.props.showModal();
   };
 
   render() {

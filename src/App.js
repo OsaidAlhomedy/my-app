@@ -7,8 +7,29 @@ import Container from "react-bootstrap/Container";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import "./App.css";
+import DataArr from "./components/data.json";
+import SelectedBeast from "./components/SelectedBeast";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false,
+    };
+  }
+
+  stateHandleShow = () => {
+    this.setState({
+      show: true,
+    });
+  };
+
+  stateHandleHide = () => {
+    this.setState({
+      show: false,
+    });
+  };
+
   render() {
     return (
       <Container fluid align="center">
@@ -18,7 +39,8 @@ class App extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Main />
+          <SelectedBeast show={this.state.show} hide={this.stateHandleHide} />
+          <Main data={DataArr} stateUpdate={this.stateHandleShow} />
         </Row>
         <Row>
           <Col>
