@@ -16,12 +16,18 @@ class HornedBeasts extends React.Component {
     this.setState({
       counter: this.state.counter + 1,
     });
+    this.props.showModal();
+    this.props.modalData(
+      this.props.title,
+      this.props.image_url,
+      this.props.description
+    );
   };
 
   render() {
     return (
       <Card
-        style={{ width: "18rem", height: "30rem" }}
+        style={{ width: "18rem", height: "35rem" }}
         onClick={this.likesIncrement}
       >
         <Card.Img variant="top" src={this.props.image_url} />
