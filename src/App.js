@@ -15,8 +15,19 @@ class App extends React.Component {
     super(props);
     this.state = {
       show: false,
+      title: null,
+      url: null,
+      description: null,
     };
   }
+
+  modalData = (title, url, desc) => {
+    this.setState({
+      title: title,
+      url: url,
+      description: desc,
+    });
+  };
 
   stateHandleShow = () => {
     this.setState({
@@ -39,8 +50,18 @@ class App extends React.Component {
           </Col>
         </Row>
         <Row>
-          <SelectedBeast show={this.state.show} hide={this.stateHandleHide} />
-          <Main data={DataArr} stateUpdate={this.stateHandleShow} />
+          <SelectedBeast
+            show={this.state.show}
+            hide={this.stateHandleHide}
+            title={this.state.title}
+            url={this.state.url}
+            desc={this.state.description}
+          />
+          <Main
+            data={DataArr}
+            stateUpdate={this.stateHandleShow}
+            modalData={this.modalData}
+          />
         </Row>
         <Row>
           <Col>

@@ -6,9 +6,16 @@ class SelectedBeast extends PureComponent {
     return (
       <Modal show={this.props.show} onHide={this.props.hide}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{this.props.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <img
+            style={{ width: "18rem" }}
+            src={this.props.url}
+            alt={this.props.title}
+          />
+          <p>{this.props.desc}</p>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={this.props.hide}>
             Close

@@ -21,6 +21,7 @@ class Main extends React.Component {
                 image_url={element.image_url}
                 description={element.description}
                 showModal={this.props.stateUpdate}
+                modalData={this.props.modalData}
               />
             </Col>
           );
