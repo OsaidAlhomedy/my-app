@@ -1,6 +1,5 @@
 import React from "react";
 import HornedBeasts from "./HornedBeasts";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Col } from "react-bootstrap";
 
 class Main extends React.Component {

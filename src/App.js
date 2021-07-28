@@ -9,6 +9,7 @@ import { Col } from "react-bootstrap";
 import "./App.css";
 import DataArr from "./components/data.json";
 import SelectedBeast from "./components/SelectedBeast";
+import Forms from "./components/Forms";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,8 +19,21 @@ class App extends React.Component {
       title: null,
       url: null,
       description: null,
+      data: DataArr,
     };
   }
+
+  dataHandle = (submittedData) => {
+    //eslint-disable-next-line
+    let newDataArray = DataArr.filter((item) => {
+      if (item.horns === Number(submittedData)) {
+        return item;
+      } else if (submittedData === "all") {
+        return item;
+      }
+    });
+    this.setState({ data: newDataArray });
+  };
 
   modalData = (title, url, desc) => {
     this.setState({
@@ -47,6 +61,7 @@ class App extends React.Component {
         <Row>
           <Col>
             <Header />
+            <Forms handleSubmission={this.dataHandle} />
           </Col>
         </Row>
         <Row>
@@ -58,7 +73,7 @@ class App extends React.Component {
             desc={this.state.description}
           />
           <Main
-            data={DataArr}
+            data={this.state.data}
             stateUpdate={this.stateHandleShow}
             modalData={this.modalData}
           />
